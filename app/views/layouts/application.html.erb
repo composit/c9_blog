@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>C9Blog</title>
+  <title>Sayings</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="wrap">
+    <div id="nav"></div>
+    <div id="sidebar">
+      <%= image_tag "static_images/facer.jpg" %>
+      <ul>
+        <li><%= link_to "about", "/static_pages/about.html" %></li>
+        <li><%= link_to "weblog", entries_path %></li>
+        <li><%= link_to "projects", "/static_pages/projects.html" %></li>
+        <li><%= link_to "resume", "/static_pages/resume.pdf" %></li>
+        <li><%= link_to "GitHub", "http://github.com/composit" %></li>
+        <li><%= link_to "LinkedIn", "http://www.linkedin.com/in/composition9" %></li>
+        <li><%= link_to "log in", "https://timely.composition9.com" %></li>
+      </ul>
+    </div>
+    <div id="main">
+      <div id="header">
+        <h1>weblog</h1>
+        <%= image_tag "static_images/c9_logo.png" %>
+      </div>
+      <%= yield %>
+    </div>
+    <div id="footer">
+      Composition9 Design, LLC<br />
+    </div>
+  </div>
 </body>
 </html>

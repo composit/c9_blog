@@ -5,6 +5,24 @@ gem 'rails', '3.0.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'mongoid', '>=2.0.0.beta.20'
+gem 'bson_ext', '>=1.1.2'
+
+group :development do
+  gem 'ruby-debug19', '>=0.11.6'
+  gem 'passenger', '>=3.0.0'
+end
+
+group :test do
+  gem 'capybara', '>=0.4.0'
+  gem 'database_cleaner', '>=0.6.0'
+  gem 'cucumber-rails', '>=0.3.2'
+  gem 'rspec-rails', '>=2.1.0'
+  gem 'spork', '>=0.9.0.rc2'
+  gem 'launchy', '>=0.3.7'
+  gem 'factory_girl_rails', '>=1.0'
+  gem 'autotest', '>=4.4.5'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

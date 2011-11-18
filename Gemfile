@@ -6,7 +6,7 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mongoid', '~>2.0.2'
-gem 'bson_ext', '~>1.1.5'
+gem 'bson_ext', '~>1.4.0'
 
 group :development do
   gem 'ruby-debug19', '~>0.11.6'

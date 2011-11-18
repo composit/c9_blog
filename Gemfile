@@ -10,7 +10,7 @@ gem 'bson_ext', '>=1.1.2'
 
 group :development do
   gem 'ruby-debug19', '>=0.11.6'
-  gem 'passenger', '>=3.0.0'
+  gem 'passenger', '>=3.0.6'
 end
 
 group :test do

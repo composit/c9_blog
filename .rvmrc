@@ -1,2 +1,2 @@
-rvm --default 1.9.2
-rvm 1.9.2@c9_blog
+rvm_gemset_create_on_use_flag=1
+rvm use 1.9.2-p290@c9_blog --default

@@ -7,6 +7,7 @@ gem 'rails', '3.0.3'
 
 gem 'mongoid', '~>2.0.2'
 gem 'bson_ext', '~>1.4.0'
+gem 'capistrano'
 
 group :development do
   gem 'ruby-debug19', '~>0.11.6'

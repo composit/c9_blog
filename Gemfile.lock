@@ -139,6 +139,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.9)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     selenium-webdriver (2.29.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -159,7 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (~> 1.4.0)
-  capistrano
+  capistrano (~> 2.14.1)
   capybara (~> 0.4.1.2)
   database_cleaner (~> 0.6.7)
   factory_girl_rails (~> 1.4.0)
@@ -169,4 +171,5 @@ DEPENDENCIES
   rails (= 3.0.19)
   rspec-rails (~> 2.1.0)
   ruby-debug19 (~> 0.11.6)
+  rvm-capistrano (~> 1.2.7)
   spork (~> 0.9.0.rc9)

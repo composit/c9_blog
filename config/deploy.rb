@@ -23,7 +23,6 @@ after "deploy:restart", "deploy:cleanup"
 
 after 'deploy:update_code' do
   run "ln -nfs #{deploy_to}/shared/setup_load_paths.rb #{release_path}/config/setup_load_paths.rb"
-  run "ln -nfs #{deploy_to}/shared/config/application.yml #{release_path}/config/application.yml"
 end
 
 before 'deploy:assets:precompile' do

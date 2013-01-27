@@ -38,3 +38,7 @@ after 'deploy:update_code' do
   run "cd #{release_path} && bundle install --without test --without development"
   run "rvm rvmrc trust #{current_release}"
 end
+
+before 'deploy:assets:precompile' do
+  run "ln -nfs #{deploy_to}/shared/config/application.yml #{release_path}/config/application.yml"
+end

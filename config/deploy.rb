@@ -1,42 +1,28 @@
 set :application, "c9_blog"
 set :repository,  "git@github.com:composit/c9_blog.git"
-set :user, "root"
-set :deploy_to, "/var/www/c9_blog"
 ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-require "rvm/capistrano"                  # Load RVM's capistrano plugin.
-set :rvm_ruby_string, '1.9.2@c9_blog'        # Or whatever env you want it to run in.
+require 'capistrano/ext/multistage'
+set :stages, %w( staging production )
+set :default_stage, 'staging'
 
-set :scm, 'git'
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+require 'rvm/capistrano'
+set :rvm_ruby_string, '1.9.2-p290'
+set :rvm_type, :system
 
-server "parasites", :app, :web, :db, :primary => true
+require 'bundler/capistrano'
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :scm, :git
 
-# If you are using Passenger mod_rails uncomment this:
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-end
+server "murder", :app, :web, :db, :primary => true
 
-namespace :rvm do
-  desc 'Trust rvmrc file'
-  task :trust_rvmrc do
-    run "rvm rvmrc trust #{current_release}"
-  end
-end
+after "deploy:restart", "deploy:cleanup"
 
 after 'deploy:update_code' do
   run "ln -nfs #{deploy_to}/shared/setup_load_paths.rb #{release_path}/config/setup_load_paths.rb"
-
-  run "cd #{release_path} && bundle install --without test --without development"
-  run "rvm rvmrc trust #{current_release}"
 end
 
 before 'deploy:assets:precompile' do

@@ -9,6 +9,7 @@ gem 'mongoid', '~>2.0.2'
 gem 'bson_ext', '~>1.4.0'
 gem 'capistrano', '~>2.14.1'
 gem 'rvm-capistrano', '~>1.2.7'
+gem 'unicorn', '~> 4.5.0'
 
 group :development do
   gem 'ruby-debug19', '~>0.11.6'
